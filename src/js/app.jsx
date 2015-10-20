@@ -1,31 +1,22 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var k = React.Kendo = require('react-kendo');
 
-/**
- * Instead of, e.g.
- * $('#my-splitter').kendoSplitter(splitterOptions);
- */
-var splitterOptions = {
-  orientation: 'horizontal',
-  panes: [
-    { collapsible: false, size: '300px' },
-    { resizable: true }
-  ]
-};
+import KendoGrid from "./components/KendoGrid.jsx";
+import KendoTree from "./components/KendoTree.jsx";
+import KendoSplitter from "./components/KendoSplitter.jsx";
 
 
-var Workstation = React.createClass({
-  render: function () {
+class App extends React.Component {
+  render() {
     var props = this.props;
     return (
-      <k.Splitter options={props.splitterOptions}>
-        <k.TreeView options={props.treeOptions} />
-        <k.Grid options={props.gridOptions} />
-      </k.Splitter>
+      <KendoSplitter options={props.splitterOptions} >
+        <KendoTree options={props.treeOptions} />
+        <KendoGrid options={props.gridOptions} />
+      </KendoSplitter>
     );
   }
-});
+}
 
 
 var treeOptions = {
@@ -52,7 +43,16 @@ var gridOptions = {
     ]
 };
 
-ReactDOM.render(<Workstation
+var splitterOptions = {
+  orientation: 'horizontal',
+  panes: [
+    { collapsible: false, size: '300px' },
+    { resizable: true }
+  ]
+};
+
+ReactDOM.render(<App
                   gridOptions={gridOptions}
                   treeOptions={treeOptions} />, document.getElementById("main"));
+
 
