@@ -1,19 +1,21 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var k = React.Kendo = require('react-kendo');
 
 import KendoGrid from "./components/KendoGrid.jsx";
-import KendoTree from "./components/KendoTree.jsx";
-import KendoSplitter from "./components/KendoSplitter.jsx";
+import KendoTreeView from "./components/KendoTreeView.jsx";
+// import KendoSplitter from "./components/KendoSplitter.jsx";
 
 
 class App extends React.Component {
   render() {
     var props = this.props;
+    console.log("App render()");
     return (
-      <KendoSplitter options={props.splitterOptions} >
-        <KendoTree options={props.treeOptions} />
+      <k.Splitter options={props.splitterOptions} >
+        <KendoTreeView options={props.treeOptions} />
         <KendoGrid options={props.gridOptions} />
-      </KendoSplitter>
+      </k.Splitter>
     );
   }
 }
@@ -53,6 +55,7 @@ var splitterOptions = {
 
 ReactDOM.render(<App
                   gridOptions={gridOptions}
-                  treeOptions={treeOptions} />, document.getElementById("main"));
+                  treeOptions={treeOptions}
+                  splitterOptions={splitterOptions} />, document.getElementById("main"));
 
 

@@ -12,6 +12,8 @@ class KendoSplitter extends React.Component{
 
 
   render() {
+  	  	console.log("Grid render()");
+
     return (
       <k.Splitter options={this.props.options} />
     )

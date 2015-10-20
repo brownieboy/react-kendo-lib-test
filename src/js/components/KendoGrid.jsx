@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 // import {es6BindAll} from 'es6bindall';
 var k = React.Kendo = require('react-kendo');
 
-
 class KendoGrid extends React.Component{
   // constructor(props) {
   //   super(props);
@@ -12,6 +11,7 @@ class KendoGrid extends React.Component{
 
 
   render() {
+  	console.log("Grid render()");
     return (
       <k.Grid options={this.props.options} />
     );
